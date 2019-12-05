@@ -40,7 +40,6 @@ module Searchkick
 
         class << self
           def searchkick_search(term = "*", **options, &block)
-            logger.debug "searchkick.search #{self.inspect}"
             Searchkick.search(term, {model: self}.merge(options), &block)
           end
           alias_method Searchkick.search_method_name, :searchkick_search if Searchkick.search_method_name
